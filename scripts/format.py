@@ -133,7 +133,7 @@ def format_wang_xing(raw: str) -> str:
 
     # Load image map if available
     img_map: dict = {}
-    map_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+    map_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                             "wang-xing", "images", "map.json")
     if os.path.exists(map_path):
         with open(map_path, encoding="utf-8") as f:

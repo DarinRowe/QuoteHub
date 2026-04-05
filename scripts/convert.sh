@@ -3,7 +3,8 @@
 
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPTS_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # -------------------------------------------------------------------
 # Convert one PDF to Markdown
@@ -37,7 +38,7 @@ convert_pdf() {
     # Extract text and pipe through Python formatter for clean Markdown
     pdftotext -nopgbrk -enc UTF-8 "$pdf" - \
       | sed 's/[[:space:]]*$//' \
-      | python3 "$ROOT/format.py" "$key"
+      | python3 "$SCRIPTS_DIR/format.py" "$key"
   } > "$out"
 
   local lines
@@ -92,7 +93,7 @@ echo "=== QuoteHub PDF → Markdown converter ==="
 echo ""
 
 echo "[wang-xing] Extracting images..."
-python3 "$ROOT/extract_images.py"
+python3 "$SCRIPTS_DIR/extract_images.py"
 echo ""
 
 echo "[wang-xing]"

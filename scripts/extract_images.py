@@ -14,9 +14,11 @@ import re
 import sys
 import fitz  # PyMuPDF
 
-PDF_PATH   = os.path.join(os.path.dirname(__file__), "wang-xing",
+ROOT_DIR   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+PDF_PATH   = os.path.join(ROOT_DIR, "wang-xing",
                           "88万字，王兴饭否动态合集，2007年-2020年12月.pdf")
-OUT_DIR    = os.path.join(os.path.dirname(__file__), "wang-xing", "images")
+OUT_DIR    = os.path.join(ROOT_DIR, "wang-xing", "images")
 MAP_PATH   = os.path.join(OUT_DIR, "map.json")
 
 ENTRY_RE   = re.compile(r'^(\d+)\.\s*$|^(\d+)\.\s+\S')
