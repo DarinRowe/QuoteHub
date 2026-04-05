@@ -1,0 +1,9 @@
+# PDFs — source files, not committed
+*.pdf
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
